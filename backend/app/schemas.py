@@ -18,6 +18,26 @@ class User(UserBase):
     class Config:
         from_attributes = True
 
+class APIKeyBase(BaseModel):
+    name: str
+
+class APIKeyCreate(APIKeyBase):
+    pass
+
+class APIKey(APIKeyBase):
+    id: int
+    user_id: int
+    prefix: str
+    last_used_at: Optional[datetime] = None
+    is_active: bool
+    created_at: datetime
+
+    class Config:
+        from_attributes = True
+
+class APIKeyWithPlain(APIKey):
+    api_key: str
+
 class DocumentBase(BaseModel):
     filename: str
     file_type: str

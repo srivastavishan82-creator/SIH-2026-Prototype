@@ -92,7 +92,7 @@ Automatically extracts and classifies:
 | **NLP** | IndicBERT / MuRIL / XLM-R | Language detection and entity mapping |
 | **Database** | PostgreSQL + PostGIS | Structured data + GIS support |
 | **Task Queue** | Celery + Redis | Async OCR processing |
-| **Authentication** | JWT / OAuth 2.0 | Role-based access control |
+| **Authentication** | JWT / OAuth 2.0 + API key auth | Role-based access and programmatic access |
 | **File Storage** | Local filesystem / MinIO | Document storage |
 | **Monitoring** | Prometheus + Grafana | Metrics and analytics |
 
@@ -118,11 +118,13 @@ SIH 2026/
 │   │   ├── main.py                 # FastAPI application entry point
 │   │   ├── database.py             # PostgreSQL connection setup
 │   │   ├── auth.py                 # JWT authentication utilities
+│   │   ├── api_key_auth.py         # API key authentication
 │   │   ├── models.py               # SQLAlchemy ORM models
 │   │   ├── schemas.py              # Pydantic request/response schemas
 │   │   ├── api/
 │   │   │   ├── __init__.py
 │   │   │   ├── auth.py             # Authentication endpoints
+│   │   │   ├── api_keys.py         # API key management
 │   │   │   ├── documents.py        # Document CRUD operations
 │   │   │   ├── ocr.py              # OCR processing endpoints
 │   │   │   ├── validation.py       # Field validation endpoints
@@ -180,8 +182,8 @@ SIH 2026/
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/land-record-digitization.git
-cd land-record-digitization
+git clone https://github.com/srivastavishan82-creator/SIH-2026-Prototype.git
+cd SIH-2026-Prototype
 
 # Start all services
 docker-compose up
@@ -274,7 +276,38 @@ docker-compose up db redis -d
 - `POST /api/v1/integrations/lrms` - Sync with LRMS
 - `GET /api/v1/integrations/gis/parcel/{survey_no}` - Fetch GIS data
 
+### API Keys
+- `POST /api/v1/api-keys/` - Create API key
+- `GET /api/v1/api-keys/` - List API keys
+- `DELETE /api/v1/api-keys/{id}` - Revoke API key
+
+### API Key Usage
+Send requests with header: `X-API-Key: lrds_<your-api-key>`
+
 **Full interactive API documentation available at:** `http://localhost:8000/docs`
+
+---
+
+## 🔐 API Key Access
+
+Programmatic access is supported via scoped API keys.
+
+### Create an API Key
+```bash
+curl -X POST "http://localhost:8000/api/v1/api-keys/" \
+  -H "Authorization: Bearer <access_token>" \
+  -H "Content-Type: application/json" \
+  -d '{"name": "my-integration-key"}'
+```
+
+### Use an API Key
+```bash
+curl -H "X-API-Key: lrds_<your-api-key>" http://localhost:8000/api/v1/protected-doc
+```
+
+### Manage Keys
+- List keys: `GET /api/v1/api-keys/`
+- Revoke key: `DELETE /api/v1/api-keys/{id}`
 
 ---
 
@@ -325,7 +358,7 @@ Create a `.env` file in the `backend/` directory:
 
 ```env
 # Database
-DATABASE_URL=postgresql://landuser:landpass@localhost:5432/landrecords
+DATABASE_URL=postgresql://landuser:***@localhost:5432/landrecords
 
 # Redis
 REDIS_URL=redis://localhost:6379/0

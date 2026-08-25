@@ -1,8 +1,17 @@
 from sqlalchemy import Column, Integer, String, Float, DateTime, Text, Boolean, ForeignKey
 from sqlalchemy.sql import func
 from sqlalchemy.ext.declarative import declarative_base
+from passlib.context import CryptContext
 
 Base = declarative_base()
+
+pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def hash_api_key(api_key: str) -> str:
+    return pwd_context.hash(api_key)
+
+def verify_api_key(plain: str, hashed: str) -> bool:
+    return pwd_context.verify(plain, hashed)
 
 class User(Base):
     __tablename__ = "users"
@@ -15,6 +24,18 @@ class User(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+class APIKey(Base):
+    __tablename__ = "api_keys"
+
+    id = Column(Integer, primary_key=True, index=True)
+    user_id = Column(Integer, ForeignKey("users.id"), nullable=False)
+    name = Column(String(255), nullable=False)
+    key_hash = Column(String(255), nullable=False)
+    prefix = Column(String(20), nullable=False, index=True)
+    last_used_at = Column(DateTime(timezone=True), nullable=True)
+    is_active = Column(Boolean, default=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
 
 class Document(Base):
     __tablename__ = "documents"
