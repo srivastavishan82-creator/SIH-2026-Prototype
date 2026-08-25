@@ -9,7 +9,6 @@ import {
   RobotOutlined,
 } from '@ant-design/icons';
 import Dashboard from './pages/Dashboard';
-import AISettings from './pages/AISettings';
 import UploadDocument from './pages/UploadDocument';
 import VerificationQueue from './pages/VerificationQueue';
 import DocumentDetails from './pages/DocumentDetails';

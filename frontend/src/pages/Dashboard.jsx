@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Card, Row, Col, Statistic, Progress, Table, Tag } from 'antd';
 import { FileTextOutlined, CheckCircleOutlined, ClockCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
+  const navigate = useNavigate();
   const [stats] = useState({
     total: 0,
     processed: 0,
@@ -66,6 +68,9 @@ function Dashboard() {
       </Row>
       <Card title="Recent Documents" style={{ marginTop: 24 }}>
         <Table dataSource={recentDocuments} columns={columns} pagination={false} />
+      </Card>
+      <Card title="AI Settings" style={{ marginTop: 24 }} hoverable onClick={() => navigate('/ai')}>
+        <p>Configure LLM providers for structured extraction, validation, and post-processing.</p>
       </Card>
     </div>
   );
