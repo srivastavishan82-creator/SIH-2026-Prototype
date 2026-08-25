@@ -29,7 +29,8 @@ function App() {
     { key: 'documents', icon: <FileTextOutlined />, label: 'Documents' },
     { key: 'analytics', icon: <BarChartOutlined />, label: 'Analytics' },
     { key: 'integrations', icon: <ApiOutlined />, label: 'Integrations' },
-    { key: 'ai', icon: <RobotOutlined />, label: 'AI Settings' },
+    { type: 'divider' },
+    { key: 'ai', icon: <RobotOutlined />, label: 'AI Settings', danger: true },
   ];
 
   const renderPage = () => {
