@@ -31,7 +31,6 @@ function DocumentDetails() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>Document Details</h2>
       <Space style={{ marginBottom: 16 }} wrap>
         <Button type="primary">Save Changes</Button>
         <Button>Export JSON</Button>

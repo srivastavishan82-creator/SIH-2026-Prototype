@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, Form, Input, Button, message, Tabs, Table } from 'antd';
+import { Form, Input, Button, message, Tabs, Table } from 'antd';
 import { ApiOutlined } from '@ant-design/icons';
 
 function Integrations() {
@@ -70,10 +70,7 @@ function Integrations() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>System Integrations</h2>
-      <Card>
-        <Tabs items={items} />
-      </Card>
+      <Tabs items={items} />
     </div>
   );
 }

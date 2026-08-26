@@ -1,4 +1,4 @@
-import { Card, Row, Col, Statistic, Grid } from 'antd';
+import { Card, Row, Col, Grid } from 'antd';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { FileTextOutlined, CheckCircleOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
@@ -27,21 +27,32 @@ function Analytics() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>Analytics Dashboard</h2>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} lg={8}>
-          <Card>
-            <Statistic title="Total Documents" value={413} prefix={<FileTextOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon blue"><FileTextOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Total Documents</div>
+              <div className="stat-value">413</div>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={8}>
-          <Card>
-            <Statistic title="Verified Records" value={367} prefix={<CheckCircleOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon green"><CheckCircleOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Verified Records</div>
+              <div className="stat-value">367</div>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={8}>
-          <Card>
-            <Statistic title="Pending Review" value={46} prefix={<ClockCircleOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon orange"><ClockCircleOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Pending Review</div>
+              <div className="stat-value">46</div>
+            </div>
           </Card>
         </Col>
       </Row>

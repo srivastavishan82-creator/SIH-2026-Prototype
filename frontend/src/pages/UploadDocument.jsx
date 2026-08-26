@@ -1,8 +1,14 @@
 import { useState } from 'react';
-import { Upload, Button, message, Progress, Card } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
+import { Upload, message, Progress, Card, Row, Col } from 'antd';
+import { CloudUploadOutlined, FilePdfOutlined, FileImageOutlined, FileAddOutlined } from '@ant-design/icons';
 
 const { Dragger } = Upload;
+
+const formats = [
+  { icon: <FilePdfOutlined style={{ color: '#ff4d4f' }} />, label: 'PDF' },
+  { icon: <FileImageOutlined style={{ color: '#1677ff' }} />, label: 'JPG / PNG' },
+  { icon: <FileAddOutlined style={{ color: '#52c41a' }} />, label: 'Scanned Maps' },
+];
 
 function UploadDocument() {
   const [uploading, setUploading] = useState(false);
@@ -31,21 +37,32 @@ function UploadDocument() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>Upload Land Record</h2>
-      <Card>
-        <Dragger {...uploadProps}>
-          <p className="ant-upload-drag-icon">
-            <InboxOutlined />
-          </p>
-          <p className="ant-upload-text">Click or drag scanned image / PDF here</p>
-          <p className="ant-upload-hint">Supports scanned images, PDFs, cadastral maps. Multiple Indian languages.</p>
-        </Dragger>
-        {uploading && (
-          <div style={{ marginTop: 16 }}>
-            <Progress percent={progress} status="active" />
-          </div>
-        )}
-      </Card>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} md={18}>
+          <Dragger {...uploadProps} className="upload-dragger" style={{ background: 'rgba(22,119,255,0.02)' }}>
+            <p className="ant-upload-drag-icon">
+              <CloudUploadOutlined />
+            </p>
+            <p className="ant-upload-text" style={{ fontWeight: 600 }}>Tap to upload or drag file here</p>
+            <p className="ant-upload-hint">Scanned documents, cadastral maps & registers in multiple Indian languages</p>
+          </Dragger>
+          {uploading && (
+            <div style={{ marginTop: 16 }}>
+              <Progress percent={progress} status="active" />
+            </div>
+          )}
+        </Col>
+        <Col xs={24} md={6}>
+          <Card size="small" title="Supported Formats">
+            {formats.map((f) => (
+              <div key={f.label} style={{ display: 'flex', alignItems: 'center', gap: 10, padding: '8px 0', fontSize: 14 }}>
+                <span style={{ fontSize: 18 }}>{f.icon}</span>
+                {f.label}
+              </div>
+            ))}
+          </Card>
+        </Col>
+      </Row>
     </div>
   );
 }

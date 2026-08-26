@@ -37,7 +37,6 @@ function VerificationQueue() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>Verification Queue</h2>
       <Table dataSource={data} columns={columns} scroll={{ x: 800 }} size="middle" />
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Card, Row, Col, Statistic, Progress, Table, Tag } from 'antd';
+import { Card, Row, Col, Progress, Table, Tag } from 'antd';
 import { FileTextOutlined, CheckCircleOutlined, ClockCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
 
 function Dashboard() {
@@ -29,26 +29,41 @@ function Dashboard() {
 
   return (
     <div>
-      <h2 style={{ marginBottom: 24 }}>Dashboard</h2>
       <Row gutter={[16, 16]}>
         <Col xs={24} sm={12} lg={6}>
-          <Card>
-            <Statistic title="Total Documents" value={stats.total} prefix={<FileTextOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon blue"><FileTextOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Total Documents</div>
+              <div className="stat-value">{stats.total}</div>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card>
-            <Statistic title="Processed" value={stats.processed} prefix={<CheckCircleOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon green"><CheckCircleOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Processed</div>
+              <div className="stat-value">{stats.processed}</div>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card>
-            <Statistic title="Pending" value={stats.pending} prefix={<ClockCircleOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon orange"><ClockCircleOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Pending</div>
+              <div className="stat-value">{stats.pending}</div>
+            </div>
           </Card>
         </Col>
         <Col xs={24} sm={12} lg={6}>
-          <Card>
-            <Statistic title="Accuracy" value={stats.accuracy} suffix="%" prefix={<ExclamationCircleOutlined />} />
+          <Card className="stat-card">
+            <span className="stat-icon purple"><ExclamationCircleOutlined /></span>
+            <div className="stat-meta">
+              <div className="stat-title">Accuracy</div>
+              <div className="stat-value">{stats.accuracy}%</div>
+            </div>
           </Card>
         </Col>
       </Row>
