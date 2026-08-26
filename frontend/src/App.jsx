@@ -6,7 +6,6 @@ import {
   BarChartOutlined,
   ApiOutlined,
   UserOutlined,
-  RobotOutlined,
 } from '@ant-design/icons';
 import Dashboard from './pages/Dashboard';
 import UploadDocument from './pages/UploadDocument';
@@ -14,7 +13,6 @@ import VerificationQueue from './pages/VerificationQueue';
 import DocumentDetails from './pages/DocumentDetails';
 import Analytics from './pages/Analytics';
 import Integrations from './pages/Integrations';
-import AISettings from './pages/AISettings';
 
 const { Header, Sider, Content } = Layout;
 
@@ -29,8 +27,6 @@ function App() {
     { key: 'documents', icon: <FileTextOutlined />, label: 'Documents' },
     { key: 'analytics', icon: <BarChartOutlined />, label: 'Analytics' },
     { key: 'integrations', icon: <ApiOutlined />, label: 'Integrations' },
-    { type: 'divider' },
-    { key: 'ai', icon: <RobotOutlined />, label: 'AI Settings', danger: true },
   ];
 
   const renderPage = () => {
@@ -47,8 +43,6 @@ function App() {
         return <Analytics />;
       case 'integrations':
         return <Integrations />;
-      case 'ai':
-        return <AISettings />;
       default:
         return <Dashboard />;
     }
