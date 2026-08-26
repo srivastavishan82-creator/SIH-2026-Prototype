@@ -30,42 +30,42 @@ function Dashboard() {
   return (
     <div>
       <h2 style={{ marginBottom: 24 }}>Dashboard</h2>
-      <Row gutter={16}>
-        <Col span={6}>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic title="Total Documents" value={stats.total} prefix={<FileTextOutlined />} />
           </Card>
         </Col>
-        <Col span={6}>
+        <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic title="Processed" value={stats.processed} prefix={<CheckCircleOutlined />} />
           </Card>
         </Col>
-        <Col span={6}>
+        <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic title="Pending" value={stats.pending} prefix={<ClockCircleOutlined />} />
           </Card>
         </Col>
-        <Col span={6}>
+        <Col xs={24} sm={12} lg={6}>
           <Card>
             <Statistic title="Accuracy" value={stats.accuracy} suffix="%" prefix={<ExclamationCircleOutlined />} />
           </Card>
         </Col>
       </Row>
-      <Row gutter={16} style={{ marginTop: 24 }}>
-        <Col span={12}>
+      <Row gutter={[16, 16]} style={{ marginTop: 24 }}>
+        <Col xs={24} lg={12}>
           <Card title="Processing Progress">
             <Progress percent={stats.processed} status="active" />
           </Card>
         </Col>
-        <Col span={12}>
+        <Col xs={24} lg={12}>
           <Card title="Confidence Distribution">
             <Progress type="dashboard" percent={stats.accuracy} />
           </Card>
         </Col>
       </Row>
-      <Card title="Recent Documents" style={{ marginTop: 24 }}>
-        <Table dataSource={recentDocuments} columns={columns} pagination={false} />
+      <Card title="Recent Documents" style={{ marginTop: 24 }} styles={{ body: { padding: '0 8px 8px' } }}>
+        <Table dataSource={recentDocuments} columns={columns} pagination={false} scroll={{ x: 600 }} size="middle" />
       </Card>
     </div>
   );

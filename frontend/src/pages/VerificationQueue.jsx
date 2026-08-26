@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Table, Tag, Button } from 'antd';
+import { Table, Tag, Button, message } from 'antd';
 import { CheckCircleOutlined } from '@ant-design/icons';
 
 function VerificationQueue() {
@@ -38,7 +38,7 @@ function VerificationQueue() {
   return (
     <div>
       <h2 style={{ marginBottom: 24 }}>Verification Queue</h2>
-      <Table dataSource={data} columns={columns} />
+      <Table dataSource={data} columns={columns} scroll={{ x: 800 }} size="middle" />
     </div>
   );
 }

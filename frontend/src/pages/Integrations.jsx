@@ -46,7 +46,7 @@ function Integrations() {
             Sync with LRMS
           </Button>
           {lrmsResponse && (
-            <Table dataSource={[lrmsResponse]} columns={lrmsColumns} style={{ marginTop: 16 }} pagination={false} />
+            <Table dataSource={[lrmsResponse]} columns={lrmsColumns} style={{ marginTop: 16 }} pagination={false} scroll={{ x: 500 }} size="middle" />
           )}
         </div>
       ),
@@ -61,7 +61,7 @@ function Integrations() {
             Load GIS Data
           </Button>
           {gisData.length > 0 && (
-            <Table dataSource={gisData} columns={gisColumns} style={{ marginTop: 16 }} pagination={false} />
+            <Table dataSource={gisData} columns={gisColumns} style={{ marginTop: 16 }} pagination={false} scroll={{ x: 600 }} size="middle" />
           )}
         </div>
       ),

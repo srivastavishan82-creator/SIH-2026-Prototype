@@ -8,3 +8,68 @@ body {
 #root {
   min-height: 100vh;
 }
+
+/* Prevent horizontal overflow on small screens */
+html,
+body {
+  overflow-x: hidden;
+}
+
+img,
+svg,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .ant-card-head-title {
+    font-size: 15px;
+  }
+
+  h2 {
+    font-size: 18px;
+    margin-bottom: 16px !important;
+  }
+
+  .ant-statistic-title {
+    font-size: 13px;
+  }
+
+  .ant-statistic-content {
+    font-size: 18px;
+  }
+
+  .ant-table-pagination.ant-pagination {
+    margin: 16px 0 0;
+  }
+}
+
+@media (max-width: 576px) {
+  .ant-upload-text {
+    font-size: 14px;
+  }
+
+  .ant-upload-hint {
+    font-size: 12px;
+    padding: 0 8px;
+  }
+
+  .ant-upload-drag-icon svg {
+    font-size: 40px;
+  }
+
+  .ant-btn {
+    font-size: 13px;
+  }
+
+  .ant-tabs-tab {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .ant-card-body {
+    padding: 12px;
+  }
+}

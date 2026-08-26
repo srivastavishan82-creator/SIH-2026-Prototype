@@ -1,8 +1,12 @@
-import { Card, Row, Col, Statistic } from 'antd';
+import { Card, Row, Col, Statistic, Grid } from 'antd';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 import { FileTextOutlined, CheckCircleOutlined, ClockCircleOutlined } from '@ant-design/icons';
 
+const { useBreakpoint } = Grid;
+
 function Analytics() {
+  const screens = useBreakpoint();
+
   const districtData = [
     { name: 'Agra', processed: 120 },
     { name: 'Lucknow', processed: 98 },
@@ -19,21 +23,23 @@ function Analytics() {
 
   const COLORS = ['#52c41a', '#faad14', '#ff4d4f'];
 
+  const isMobile = !screens.md;
+
   return (
     <div>
       <h2 style={{ marginBottom: 24 }}>Analytics Dashboard</h2>
-      <Row gutter={16}>
-        <Col span={8}>
+      <Row gutter={[16, 16]}>
+        <Col xs={24} sm={12} lg={8}>
           <Card>
             <Statistic title="Total Documents" value={413} prefix={<FileTextOutlined />} />
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={12} lg={8}>
           <Card>
             <Statistic title="Verified Records" value={367} prefix={<CheckCircleOutlined />} />
           </Card>
         </Col>
-        <Col span={8}>
+        <Col xs={24} sm={12} lg={8}>
           <Card>
             <Statistic title="Pending Review" value={46} prefix={<ClockCircleOutlined />} />
           </Card>
@@ -43,7 +49,7 @@ function Analytics() {
         <ResponsiveContainer width="100%" height={300}>
           <BarChart data={districtData}>
             <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
+            <XAxis dataKey="name" interval={0} angle={isMobile ? -35 : 0} textAnchor={isMobile ? 'end' : 'middle'} height={isMobile ? 70 : 30} tick={{ fontSize: isMobile ? 11 : 12 }} />
             <YAxis />
             <Tooltip />
             <Bar dataKey="processed" fill="#1677ff" />
@@ -53,7 +59,7 @@ function Analytics() {
       <Card title="Accuracy Distribution" style={{ marginTop: 24 }}>
         <ResponsiveContainer width="100%" height={300}>
           <PieChart>
-            <Pie data={accuracyData} cx="50%" cy="50%" labelLine={false} label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`} outerRadius={80} dataKey="value">
+            <Pie data={accuracyData} cx="50%" cy="50%" labelLine={isMobile} label={isMobile ? ({ percent }) => `${(percent * 100).toFixed(0)}%` : ({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`} outerRadius={isMobile ? 60 : 80} dataKey="value">
               {accuracyData.map((entry, index) => (
                 <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
               ))}
