@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Card, Row, Col, Statistic, Progress, Table, Tag } from 'antd';
-import { FileTextOutlined, CheckCircleOutlined, ClockCircleOutlined, ExclamationCircleOutlined } from '@ant-design/icons';
+import { FileTextOutlined, CheckCircleOutlined, ClockCircleOutlined, ExclamationCircleOutlined, RobotOutlined } from '@ant-design/icons';
 import { useNavigate } from 'react-router-dom';
 
 function Dashboard() {
@@ -72,6 +72,9 @@ function Dashboard() {
       <Card title="AI Settings" style={{ marginTop: 24 }} hoverable onClick={() => navigate('/ai')}>
         <p>Configure LLM providers for structured extraction, validation, and post-processing.</p>
       </Card>
+      <Button type="primary" size="large" icon={<RobotOutlined />} style={{ marginTop: 24 }} onClick={() => navigate('/ai')}>
+        Open AI Settings
+      </Button>
     </div>
   );
 }
