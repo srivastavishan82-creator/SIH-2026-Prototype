@@ -120,7 +120,7 @@ function DocumentDetails() {
   return (
     <div className="animate-fade-in-up" style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
       {/* Top Header Bar — Aligned toolbar */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 12, alignItems: 'center', background: '#fff', border: '1px solid #e5e5e5', borderRadius: 12, padding: '10px 14px' }}>
+      <div className="verification-header-bar" style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 12, alignItems: 'center', background: '#fff', border: '1px solid #e5e5e5', borderRadius: 12, padding: '10px 14px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12, minWidth: 0 }}>
           <Button
             icon={<LeftOutlined style={{ fontSize: 12 }} />}
@@ -202,7 +202,7 @@ function DocumentDetails() {
               </div>
 
               {/* Metadata Grid */}
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, background: '#fafafa', border: '1px solid #e5e5e5', borderRadius: 8, padding: '8px 10px', marginBottom: 12, fontSize: 11 }}>
+              <div className="khatauni-meta-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 8, background: '#fafafa', border: '1px solid #e5e5e5', borderRadius: 8, padding: '8px 10px', marginBottom: 12, fontSize: 11 }}>
                 <div><span style={{ color: '#737373', fontWeight: 600 }}>District:</span> <strong style={{ color: '#242424' }}>Agra (आगरा)</strong></div>
                 <div><span style={{ color: '#737373', fontWeight: 600 }}>Tehsil:</span> <strong style={{ color: '#242424' }}>Sadar (सदर)</strong></div>
                 <div><span style={{ color: '#737373', fontWeight: 600 }}>Village:</span> <strong style={{ color: '#242424' }}>Rampur (रामपुर)</strong></div>

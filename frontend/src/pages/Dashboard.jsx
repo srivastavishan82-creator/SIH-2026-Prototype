@@ -141,6 +141,7 @@ function Dashboard() {
               ].map((stage) => (
                 <div
                   key={stage.step}
+                  className="digitization-stage-row"
                   style={{
                     background: '#fafafa',
                     border: '1px solid #e5e5e5',

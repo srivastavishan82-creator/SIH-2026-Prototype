@@ -37,7 +37,7 @@ function UploadDocument() {
           </div>
 
           <Form layout="vertical" style={{ marginBottom: 8 }}>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
+            <div className="intake-form-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
               <Form.Item label={<Text strong style={{ color: '#242424', fontSize: 11, letterSpacing: '0.06em' }}>DOCUMENT TYPE</Text>} style={{ marginBottom: 12 }}>
                 <Select defaultValue="register" size="large">
                   <Select.Option value="register">Handwritten Register (Khatauni)</Select.Option>
@@ -82,7 +82,7 @@ function UploadDocument() {
               <span style={{ fontWeight: 800, color: '#242424', fontSize: 11, letterSpacing: '0.06em' }}>QUICK DEMO TEMPLATES</span>
               <Tag style={{ margin: 0, background: '#242424', color: '#fff', border: '1px solid #242424', fontSize: 10, fontWeight: 750 }}>1-CLICK INGEST</Tag>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
+            <div className="quick-demo-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 8 }}>
               {[
                 { name: 'khatauni_sample.pdf', type: 'Khatauni', district: 'Agra • 2.4 MB', icon: <FilePdfOutlined /> },
                 { name: 'bhu_naksha_045.jpg', type: 'Cadastral Map', district: 'Lucknow • 4.1 MB', icon: <FileImageOutlined /> },
@@ -129,7 +129,7 @@ function UploadDocument() {
               </Tag>
             </div>
 
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
+            <div className="pre-processing-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
               {/* Module 1 */}
               <div style={{ background: '#242424', color: '#fff', border: '1px solid #242424', borderRadius: 10, padding: '10px 12px', display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -249,7 +249,7 @@ function UploadDocument() {
                 ONLINE
               </Tag>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, fontSize: 11 }}>
+            <div className="engine-sla-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8, fontSize: 11 }}>
               <div style={{ background: '#fafafa', border: '1px solid #e5e5e5', borderRadius: 8, padding: '8px 10px' }}>
                 <div style={{ color: '#737373', fontSize: 10, fontWeight: 700 }}>MEDIAN LATENCY</div>
                 <div style={{ fontWeight: 850, color: '#242424', fontSize: 14, marginTop: 2 }}>4.2s / page</div>
