@@ -477,8 +477,9 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .header-divider{ display: none !important; }
   .header-breadcrumb-wrap{ display: none !important; }
   .mobile-brand-title{ display: flex !important; }
-  .header-profile-pill{ padding: 2px !important; border: 1px solid #242424 !important; border-radius: 999px !important; flex-shrink: 0 !important; }
-  .header-profile-pill > div{ display: none !important; }
+  .header-help-btn{ display: none !important; }
+  .header-profile-text{ display: none !important; }
+  .header-profile-pill{ padding: 1px !important; gap: 0 !important; border: 1px solid #242424 !important; border-radius: 999px !important; flex-shrink: 0 !important; background: #fff !important; }
   .header-actions{ gap: 6px !important; flex-shrink: 0 !important; }
 
   /* Bottom nav - perfectly aligned B/W editorial - GRID for pixel-perfect centering */

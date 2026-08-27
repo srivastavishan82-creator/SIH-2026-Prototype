@@ -130,13 +130,13 @@ function App() {
             </div>
             <div className="header-actions" style={{display:'flex', alignItems:'center', gap:8, flexShrink:0}}>
               <Input className="header-search" prefix={<SearchOutlined style={{color:'#a3a3a3'}} />} placeholder="Search records, khasra, owner…" style={{width:260, background:'#fff', borderRadius:10, border:'1px solid #e5e5e5', height:36}} allowClear />
-              <Tooltip title="Help & Docs"><Button type="text" icon={<QuestionCircleOutlined style={{fontSize:16, color:'#525252'}} />} style={{width:34, height:34, border:'1px solid #e5e5e5', background:'#fff', borderRadius:8}} /></Tooltip>
+              <Tooltip title="Help & Docs"><Button className="header-help-btn" type="text" icon={<QuestionCircleOutlined style={{fontSize:16, color:'#525252'}} />} style={{width:34, height:34, border:'1px solid #e5e5e5', background:'#fff', borderRadius:8}} /></Tooltip>
               <Badge count={3} size="small" offset={[-2,2]}><Button type="text" icon={<BellOutlined style={{fontSize:16, color:'#525252'}} />} style={{width:34, height:34, background:'#fff', border:'1px solid #e5e5e5', borderRadius:8}} /></Badge>
               <div className="header-divider" style={{width:1, height:20, background:'#e5e5e5', margin:'0 2px'}} />
               <Dropdown menu={userMenu} placement="bottomRight" arrow>
                 <div onClick={() => setProfileOpen(true)} className="header-profile-pill" style={{cursor:'pointer', display:'flex', alignItems:'center', gap:10, padding:'3px 8px 3px 3px', borderRadius:999, background:'#fff', border:'1px solid #242424'}}>
                   <Avatar size={30} style={{background:'#242424', fontWeight:800, fontSize:12, flexShrink:0, border:'1px solid #242424'}}>AD</Avatar>
-                  <div style={{lineHeight:1.15, paddingRight:2}}><div style={{fontWeight:750, fontSize:13, color:'#242424'}}>Admin • Revenue Dept.</div><div style={{fontSize:11, color:'#737373'}}>admin@lrds.gov.in</div></div>
+                  <div className="header-profile-text" style={{lineHeight:1.15, paddingRight:2}}><div style={{fontWeight:750, fontSize:13, color:'#242424'}}>Admin • Revenue Dept.</div><div style={{fontSize:11, color:'#737373'}}>admin@lrds.gov.in</div></div>
                 </div>
               </Dropdown>
             </div>
