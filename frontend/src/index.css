@@ -469,55 +469,18 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .ant-layout-sider{ display: none !important; width: 0 !important; min-width: 0 !important; max-width: 0 !important; overflow: hidden !important; border: none !important; }
   .ant-layout{ background: #fafafa !important; }
 
-  /* Header - compact but perfectly aligned, prevent exceed on mobile */
-  .glass-header{ padding: 0 10px !important; gap: 6px !important; height: 56px !important; backdrop-filter: blur(12px) !important; border-bottom: 1px solid #e5e5e5 !important; box-shadow: 0 1px 12px rgba(0,0,0,0.06) !important; overflow: hidden !important; }
-  .glass-header > div:first-child{ min-width: 0 !important; flex: 1 1 0 !important; gap: 6px !important; overflow: hidden !important; }
+  /* Header - compact, clean B/W logo, zero text overflow on mobile */
+  .glass-header{ padding: 0 12px !important; gap: 8px !important; height: 56px !important; backdrop-filter: blur(12px) !important; border-bottom: 1px solid #e5e5e5 !important; box-shadow: 0 1px 12px rgba(0,0,0,0.06) !important; overflow: hidden !important; }
+  .glass-header > div:first-child{ min-width: 0 !important; flex: 1 !important; gap: 8px !important; }
   .header-search{ display: none !important; }
   .header-version-tag{ display: none !important; }
   .header-divider{ display: none !important; }
-  .header-breadcrumb-wrap{
-    min-width: 0 !important;
-    flex: 1 1 0 !important;
-    overflow: hidden !important;
-    gap: 6px !important;
-  }
-  .header-breadcrumb-wrap .ant-breadcrumb{
-    min-width: 0 !important;
-    flex: 1 1 0 !important;
-    overflow: hidden !important;
-    font-size: 12px !important;
-  }
-  .header-breadcrumb-wrap .ant-breadcrumb ol{
-    flex-wrap: nowrap !important;
-    overflow: hidden !important;
-    gap: 4px !important;
-    max-width: 100% !important;
-  }
-  .header-breadcrumb-wrap .ant-breadcrumb li{
-    min-width: 0 !important;
-    overflow: hidden !important;
-    flex-shrink: 1 !important;
-  }
-  .header-breadcrumb-wrap .ant-breadcrumb li:last-child{
-    flex: 1 1 0 !important;
-    min-width: 0 !important;
-    overflow: hidden !important;
-  }
-  .header-breadcrumb-wrap .breadcrumb-muted{ display: none !important; }
-  .header-breadcrumb-wrap .breadcrumb-active{
-    font-size: 12px !important;
-    font-weight: 800 !important;
-    max-width: 108px !important;
-    overflow: hidden !important;
-    text-overflow: ellipsis !important;
-    white-space: nowrap !important;
-    display: inline-block !important;
-    vertical-align: middle !important;
-  }
-  .header-profile-pill{ padding: 2px 6px 2px 2px !important; gap: 6px !important; border: 1px solid #242424 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; flex-shrink: 0 !important; max-width: 122px !important; overflow: hidden !important; }
-  .header-profile-pill div div:first-child{ font-size: 11px !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+  .header-breadcrumb-wrap{ display: none !important; }
+  .mobile-brand-title{ display: flex !important; }
+  .header-profile-pill{ padding: 2px 6px 2px 2px !important; gap: 6px !important; border: 1px solid #242424 !important; box-shadow: 0 2px 8px rgba(0,0,0,0.08) !important; flex-shrink: 0 !important; }
+  .header-profile-pill div div:first-child{ font-size: 11px !important; white-space: nowrap !important; }
   .header-profile-pill div div:last-child{ display: none !important; }
-  .header-actions{ gap: 5px !important; flex-shrink: 0 !important; }
+  .header-actions{ gap: 6px !important; flex-shrink: 0 !important; }
 
   /* Bottom nav - perfectly aligned B/W editorial - GRID for pixel-perfect centering */
   .mobile-bottom-nav{

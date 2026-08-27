@@ -117,6 +117,10 @@ function App() {
                 }}
                 style={{ width: 34, height: 34, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, border: '1px solid #e5e5e5', background: '#fff' }}
               />
+              <div className="mobile-brand-title" style={{ display: 'none', alignItems: 'center', gap: 6 }}>
+                <span style={{ width: 26, height: 26, borderRadius: 6, background: '#242424', color: '#fff', display: 'inline-flex', alignItems: 'center', justifyContent: 'center', fontSize: 12, fontWeight: 900 }}>◈</span>
+                <span style={{ fontWeight: 850, fontSize: 14, color: '#242424', letterSpacing: '-0.02em' }}>LRDS</span>
+              </div>
               <div className="header-divider" style={{width:1, height:18, background:'#e5e5e5', flexShrink:0}} />
               <div className="header-breadcrumb-wrap" style={{display:'flex', alignItems:'center', gap:8, minWidth:0}}>
                 <span style={{fontSize:16, color:'#242424'}}>{meta.icon}</span>
