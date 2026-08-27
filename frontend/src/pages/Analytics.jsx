@@ -56,16 +56,16 @@ function Analytics() {
     <div className="animate-fade-in-up" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       {/* HERO */}
       <div className="hero-bw grain grid-bw" style={{ borderRadius: 16, padding: 0, border: '1px solid #111', overflow: 'hidden' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.02)' }}>
-          <Space size={8}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: '#fff', color: '#0e0e0e', borderRadius: 999, padding: '4px 9px', fontSize: 11, fontWeight: 850, letterSpacing: '0.04em' }}>
-              <span style={{ width: 7, height: 7, borderRadius: 999, background: '#0e0e0e' }} className="pulse-dot-light" /> INTELLIGENCE • METRICS • INSIGHT
+        <div className="analytics-hero-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.02)', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
+            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: '#fff', color: '#0e0e0e', borderRadius: 999, padding: '4px 9px', fontSize: 11, fontWeight: 850, letterSpacing: '0.04em', flexShrink: 0 }}>
+              <span style={{ width: 7, height: 7, borderRadius: 999, background: '#0e0e0e' }} className="pulse-dot-light" /> INTELLIGENCE • METRICS
             </span>
-            <span style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11, letterSpacing: '0.06em', fontWeight: 700, display: 'inline-flex', gap: 6, alignItems: 'center' }}>
-              <ThunderboltOutlined /> THROUGHPUT • ACCURACY • TERRITORY
+            <span className="analytics-hero-subtitle" style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11, letterSpacing: '0.06em', fontWeight: 700, display: 'inline-flex', gap: 6, alignItems: 'center' }}>
+              <ThunderboltOutlined /> THROUGHPUT • ACCURACY
             </span>
-          </Space>
-          <Tag style={{ margin: 0, background: '#fff', color: '#0e0e0e', borderColor: '#fff', fontWeight: 800, borderRadius: 999, fontSize: 10 }}>LIVE • 413 records</Tag>
+          </div>
+          <Tag style={{ margin: 0, background: '#fff', color: '#0e0e0e', borderColor: '#fff', fontWeight: 800, borderRadius: 999, fontSize: 10, flexShrink: 0 }}>LIVE • 413 records</Tag>
         </div>
         <div className="analytics-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 14, padding: '16px 16px 14px', alignItems: 'center' }}>
           <div style={{ position: 'relative' }}>

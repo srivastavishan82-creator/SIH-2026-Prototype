@@ -609,8 +609,10 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .district-ledger-row::before{ content:''; position: absolute; left:0; top:0; bottom:0; width:3px; background:#242424; opacity:0.9; }
   .district-ledger-row > div:last-child{ justify-content: flex-start !important; }
 
-  /* Stats strips */
+  /* Stats strips & Analytics Hero */
   .analytics-stats-strip{ grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; padding: 10px !important; }
+  .analytics-hero-header{ padding: 8px 10px !important; gap: 6px !important; }
+  .analytics-hero-subtitle{ display: none !important; }
 
   /* Profile hero */
   .profile-hero-grid{ grid-template-columns: 1fr !important; gap: 12px !important; text-align: left !important; }
