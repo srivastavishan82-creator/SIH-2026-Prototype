@@ -481,26 +481,30 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .header-profile-pill div div:last-child{ display: none !important; }
   .header-actions{ gap: 6px !important; }
 
-  /* Bottom nav - perfectly aligned B/W editorial */
+  /* Bottom nav - perfectly aligned B/W editorial - GRID for pixel-perfect centering */
   .mobile-bottom-nav{
-    display: flex !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 62px 1fr 1fr !important;
+    gap: 4px !important;
+    align-items: center !important;
+    justify-items: center !important;
     position: fixed !important;
     bottom: 0 !important;
     left: 0 !important;
     right: 0 !important;
-    height: 64px !important;
+    height: 66px !important;
     background: rgba(255,255,255,0.98) !important;
     backdrop-filter: blur(16px) !important;
     -webkit-backdrop-filter: blur(16px) !important;
     border-top: 1px solid #e5e5e5 !important;
     z-index: 999 !important;
-    align-items: center !important;
-    justify-content: space-between !important;
-    padding: 4px 6px calc(4px + env(safe-area-inset-bottom)) !important;
+    padding: 6px 6px calc(6px + env(safe-area-inset-bottom)) !important;
     box-shadow: 0 -8px 24px rgba(0,0,0,0.08), 0 -1px 0 rgba(0,0,0,0.04) !important;
   }
   .mobile-bottom-nav button{
-    flex: 1 1 0px !important;
+    width: 100% !important;
+    max-width: 68px !important;
+    margin: 0 auto !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -509,48 +513,52 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
     background: transparent !important;
     border: 1px solid transparent !important;
     color: #737373 !important;
-    font-size: 9.5px !important;
+    font-size: 9px !important;
     font-weight: 750 !important;
-    letter-spacing: 0.03em !important;
+    letter-spacing: 0.04em !important;
     text-transform: uppercase !important;
     cursor: pointer !important;
-    padding: 6px 2px !important;
-    height: 52px !important;
+    padding: 5px 2px !important;
+    height: 48px !important;
     border-radius: 10px !important;
     transition: all 0.18s ease !important;
     position: relative !important;
+    text-align: center !important;
+    line-height: 1 !important;
   }
-  .mobile-bottom-nav button .anticon{ font-size: 18px !important; transition: transform 0.18s !important; }
+  .mobile-bottom-nav button .anticon{ font-size: 17px !important; line-height: 1 !important; transition: transform 0.18s !important; display: block !important; }
+  .mobile-bottom-nav button span:last-child{ display: block !important; line-height: 1 !important; white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; max-width: 100% !important; }
   .mobile-bottom-nav button.active{
     color: #fff !important;
     background: #242424 !important;
     border-color: #242424 !important;
     box-shadow: 0 4px 12px rgba(0,0,0,0.18) !important;
   }
-  .mobile-bottom-nav button.active .anticon{ transform: scale(1.08); }
+  .mobile-bottom-nav button.active .anticon{ transform: scale(1.05); }
   .mobile-bottom-nav .fab-wrap{
-    flex: 0 0 54px !important;
+    width: 62px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    height: 52px !important;
+    height: 48px !important;
+    place-self: center !important;
   }
   .mobile-fab{
-    width: 48px !important;
-    height: 48px !important;
-    border-radius: 14px !important;
+    width: 52px !important;
+    height: 52px !important;
+    border-radius: 16px !important;
     background: #242424 !important;
     color: #fff !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 21px !important;
+    font-size: 22px !important;
     border: 1.5px solid #242424 !important;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.22) !important;
-    margin-top: -16px !important;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.22), 0 2px 8px rgba(0,0,0,0.12) !important;
+    margin-top: -18px !important;
     transition: transform 0.18s !important;
   }
-  .mobile-fab:active{ transform: scale(0.95); }
+  .mobile-fab:active{ transform: scale(0.96); }
 
   /* Hero - eye-catchy mobile: centered, larger CTA, outline pop */
   .hero-bw{ border-radius: 14px !important; overflow: hidden !important; }
@@ -622,10 +630,39 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .pre-processing-grid{ grid-template-columns: 1fr !important; }
   .engine-sla-grid{ grid-template-columns: 1fr 1fr !important; }
 
-  /* Dashboard Stage Breakdown Mobile */
-  .digitization-stage-row{ grid-template-columns: auto 1fr !important; gap: 8px !important; }
-  .digitization-stage-row > div:nth-child(3),
-  .digitization-stage-row > div:nth-child(4){ grid-column: 1 / -1 !important; width: 100% !important; }
+  /* Dashboard Stage Breakdown Mobile - fixed overflow on right */
+  .digitization-stage-row{
+    display: grid !important;
+    grid-template-columns: 32px 1fr !important;
+    gap: 8px 10px !important;
+    align-items: center !important;
+    padding: 10px 12px !important;
+    overflow: hidden !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+  .digitization-stage-row > div:nth-child(1){ grid-column: 1 / 2 !important; grid-row: 1 !important; width: 32px !important; height: 32px !important; }
+  .digitization-stage-row > div:nth-child(2){ grid-column: 2 / 3 !important; grid-row: 1 !important; min-width: 0 !important; overflow: hidden !important; }
+  .digitization-stage-row > div:nth-child(2) > div:first-child{ white-space: nowrap !important; overflow: hidden !important; text-overflow: ellipsis !important; }
+  .digitization-stage-row > div:nth-child(3){
+    grid-column: 1 / -1 !important;
+    grid-row: 2 !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+  }
+  .digitization-stage-row .ant-tag,
+  .digitization-stage-row > span,
+  .digitization-stage-row > div:nth-child(4),
+  .digitization-stage-row > *:nth-child(4){
+    grid-column: 1 / -1 !important;
+    grid-row: 3 !important;
+    justify-self: start !important;
+    width: auto !important;
+    max-width: fit-content !important;
+    margin: 0 !important;
+  }
 
   /* Tables - eye-catchy horizontal scroll cue */
   .ant-table-wrapper{ overflow-x: auto; position: relative; }
