@@ -38,6 +38,7 @@ const routeMeta = {
 function App() {
   const [collapsed, setCollapsed] = useState(false);
   const [profileOpen, setProfileOpen] = useState(false);
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
   const currentPath = location.pathname.replace('/', '') || 'dashboard';
@@ -107,7 +108,15 @@ function App() {
         <Layout style={{background:'transparent', minWidth:0}}>
           <Header className="glass-header" style={{padding:'0 18px', display:'flex', alignItems:'center', justifyContent:'space-between', position:'sticky', top:0, zIndex:10, height:64, gap:16}}>
             <div style={{display:'flex', alignItems:'center', gap:12, minWidth:0, flex:1}}>
-              <Button type="text" icon={collapsed?<MenuUnfoldOutlined />:<MenuFoldOutlined />} onClick={()=>setCollapsed(!collapsed)} style={{width:34, height:34, display:'flex', alignItems:'center', justifyContent:'center', borderRadius:8, border:'1px solid #e5e5e5', background:'#fff'}} />
+              <Button
+                type="text"
+                icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+                onClick={() => {
+                  setCollapsed(!collapsed);
+                  setMobileNavOpen(true);
+                }}
+                style={{ width: 34, height: 34, display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: 8, border: '1px solid #e5e5e5', background: '#fff' }}
+              />
               <div className="header-divider" style={{width:1, height:18, background:'#e5e5e5', flexShrink:0}} />
               <div className="header-breadcrumb-wrap" style={{display:'flex', alignItems:'center', gap:8, minWidth:0}}>
                 <span style={{fontSize:16, color:'#242424'}}>{meta.icon}</span>
@@ -149,7 +158,7 @@ function App() {
         </Layout>
       </Layout>
 
-      {/* User Profile Panel - opens from Admin • Revenue Dept. > View Profile */}
+      {/* User Profile Panel */}
       <Drawer
         title={<span style={{ fontWeight: 850, letterSpacing: '-0.02em', color: '#242424' }}>My Profile • Admin • Revenue Dept.</span>}
         open={profileOpen}
@@ -162,7 +171,46 @@ function App() {
         <Profile compact />
       </Drawer>
 
-      {/* Mobile Bottom Navigation - eye-catchy, B/W editorial, only on mobile */}
+      {/* Mobile Navigation Drawer */}
+      <Drawer
+        placement="left"
+        open={mobileNavOpen}
+        onClose={() => setMobileNavOpen(false)}
+        width={280}
+        styles={{ body: { padding: 0, background: '#fff' }, header: { borderBottom: '1px solid #e5e5e5', padding: '14px 16px' } }}
+        title={
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+            <div style={{ width: 32, height: 32, borderRadius: 8, background: '#242424', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 13, fontWeight: 900 }}>◈</div>
+            <div>
+              <div style={{ fontWeight: 850, fontSize: 14, color: '#242424', lineHeight: 1.1 }}>LRDS Navigation</div>
+              <div style={{ fontSize: 10.5, color: '#737373', fontWeight: 700 }}>SIH 2026 • Revenue Dept.</div>
+            </div>
+          </div>
+        }
+      >
+        <div style={{ padding: 12 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 10, background: '#fafafa', border: '1px solid #e5e5e5', borderRadius: 10, padding: '10px 12px', marginBottom: 8 }}>
+            <div className="pulse-dot" />
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: 11.5, fontWeight: 750, color: '#242424' }}>Neural Engine Online</div>
+              <div style={{ fontSize: 10.5, color: '#737373' }}>OCR • NLP • Vision</div>
+            </div>
+            <Tag style={{ margin: 0, fontSize: 9.5, borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424' }}>LIVE</Tag>
+          </div>
+        </div>
+        <Menu
+          mode="inline"
+          selectedKeys={[currentPath]}
+          items={menuItems}
+          onClick={({ key }) => {
+            navigate(`/${key}`);
+            setMobileNavOpen(false);
+          }}
+          style={{ borderRight: 0, background: 'transparent' }}
+        />
+      </Drawer>
+
+      {/* Mobile Bottom Navigation - Perfectly aligned B/W editorial */}
       <nav className="mobile-bottom-nav" aria-label="Mobile navigation">
         <button className={currentPath === 'dashboard' ? 'active' : ''} onClick={() => navigate('/dashboard')} aria-label="Overview">
           <DashboardOutlined />
@@ -177,10 +225,14 @@ function App() {
             <CloudUploadOutlined />
           </div>
         </div>
-        <button className={currentPath === 'verification' ? 'active' : ''} onClick={() => navigate('/verification')} aria-label="Verify" style={{ position: 'relative' }}>
-          <AuditOutlined />
+        <button className={currentPath === 'verification' ? 'active' : ''} onClick={() => navigate('/verification')} aria-label="Verify">
+          <div style={{ position: 'relative', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+            <AuditOutlined />
+            {currentPath !== 'verification' && (
+              <span style={{ position: 'absolute', top: -2, right: -4, width: 6, height: 6, borderRadius: 999, background: '#242424', border: '1px solid #fff' }} />
+            )}
+          </div>
           <span>Verify</span>
-          <span style={{ position: 'absolute', top: 2, right: 10, width: 8, height: 8, borderRadius: 999, background: '#242424', border: '1px solid #fff', display: currentPath === 'verification' ? 'none' : 'block' }} />
         </button>
         <button className={currentPath === 'analytics' ? 'active' : ''} onClick={() => navigate('/analytics')} aria-label="Reports">
           <BarChartOutlined />
