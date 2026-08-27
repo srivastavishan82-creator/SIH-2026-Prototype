@@ -618,8 +618,10 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
 
   /* Territory Card Mobile Header Alignment */
   .territory-card .ant-card-head{ padding: 10px 12px !important; height: auto !important; min-height: unset !important; }
-  .territory-card .ant-card-head-title{ padding: 0 !important; white-space: normal !important; width: 100% !important; }
-  .territory-card-header{ flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+  .territory-card .ant-card-head-wrapper{ display: block !important; width: 100% !important; }
+  .territory-card .ant-card-head-title{ padding: 0 !important; white-space: normal !important; overflow: visible !important; text-overflow: clip !important; width: 100% !important; }
+  .territory-card-header{ display: flex !important; flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; width: 100% !important; white-space: normal !important; }
+  .territory-card-header > div{ width: 100% !important; display: flex !important; align-items: center !important; justify-content: space-between !important; flex-wrap: wrap !important; gap: 6px !important; white-space: normal !important; }
   .territory-badge{ font-size: 9px !important; padding: 1px 6px !important; }
 
   /* Profile hero */
