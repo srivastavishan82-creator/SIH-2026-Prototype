@@ -240,7 +240,10 @@ function Analytics() {
       {/* District Ledger - editorial substitute for BarChart */}
       <Card
         className="saffron-card animate-fade-in-up territory-card"
-        title={
+        bordered={false}
+        bodyStyle={{ padding: 16 }}
+      >
+        <div style={{ borderBottom: '1px solid #e5e5e5', paddingBottom: 12, marginBottom: 14 }}>
           <div className="territory-card-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap', width: '100%' }}>
             <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
               <span style={{ fontWeight: 850, letterSpacing: '-0.02em', color: '#242424', fontSize: 14 }}>Territory Ledger</span>
@@ -251,10 +254,8 @@ function Analytics() {
               <span style={{ color: '#737373', fontSize: 11, fontWeight: 700 }}>5 districts • {totalProcessed + totalPending} total</span>
             </div>
           </div>
-        }
-        bordered={false}
-        bodyStyle={{ padding: 16 }}
-      >
+        </div>
+
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
           {districtData.map((d, idx) => {
             const total = d.processed + d.pending;
