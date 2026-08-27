@@ -55,17 +55,16 @@ function Analytics() {
   return (
     <div className="animate-fade-in-up" style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
       {/* HERO */}
-      <div className="hero-bw grain grid-bw" style={{ borderRadius: 16, padding: 0, border: '1px solid #111', overflow: 'hidden' }}>
-        <div className="analytics-hero-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.02)', gap: 8 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0 }}>
-            <span style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: '#fff', color: '#0e0e0e', borderRadius: 999, padding: '4px 9px', fontSize: 11, fontWeight: 850, letterSpacing: '0.04em', flexShrink: 0 }}>
+      <div className="hero-bw grain grid-bw" style={{ borderRadius: 16, padding: 0, border: '1px solid #111', overflow: 'hidden' }}>        <div className="analytics-hero-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', borderBottom: '1px solid rgba(255,255,255,0.10)', background: 'rgba(255,255,255,0.02)', gap: 8 }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 8, minWidth: 0, overflow: 'hidden' }}>
+            <span className="analytics-hero-tag" style={{ display: 'inline-flex', alignItems: 'center', gap: 7, background: '#fff', color: '#0e0e0e', borderRadius: 999, padding: '4px 9px', fontSize: 11, fontWeight: 850, letterSpacing: '0.04em', flexShrink: 0 }}>
               <span style={{ width: 7, height: 7, borderRadius: 999, background: '#0e0e0e' }} className="pulse-dot-light" /> INTELLIGENCE • METRICS
             </span>
             <span className="analytics-hero-subtitle" style={{ color: 'rgba(255,255,255,0.55)', fontSize: 11, letterSpacing: '0.06em', fontWeight: 700, display: 'inline-flex', gap: 6, alignItems: 'center' }}>
               <ThunderboltOutlined /> THROUGHPUT • ACCURACY
             </span>
           </div>
-          <Tag style={{ margin: 0, background: '#fff', color: '#0e0e0e', borderColor: '#fff', fontWeight: 800, borderRadius: 999, fontSize: 10, flexShrink: 0 }}>LIVE • 413 records</Tag>
+          <Tag className="analytics-live-tag" style={{ margin: 0, background: '#fff', color: '#0e0e0e', borderColor: '#fff', fontWeight: 800, borderRadius: 999, fontSize: 10, flexShrink: 0 }}>LIVE • 413 records</Tag>
         </div>
         <div className="analytics-hero-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: 14, padding: '16px 16px 14px', alignItems: 'center' }}>
           <div style={{ position: 'relative' }}>
@@ -88,111 +87,82 @@ function Analytics() {
                   <span style={{ fontSize: 12, color: '#737373', fontWeight: 700 }}>docs this week</span>
                   <Tag style={{ margin: 0, background: '#0e0e0e', color: '#fff', borderColor: '#0e0e0e', fontWeight: 800, borderRadius: 999, fontSize: 10 }}>+18%</Tag>
                 </div>
-                <div style={{ fontSize: 11, color: '#737373', marginTop: 4, display: 'flex', gap: 6, alignItems: 'center' }}><RiseOutlined /> Avg 73 / day • Gov-grade pipeline</div>
               </div>
-              <div style={{ width: 56, height: 56, borderRadius: 10, background: '#0e0e0e', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 20, border: '1px solid #0e0e0e' }}><RocketOutlined /></div>
+              <div style={{ width: 44, height: 44, borderRadius: 12, background: '#0e0e0e', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18 }}>
+                <RocketOutlined />
+              </div>
             </div>
-            <div style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.14)', borderRadius: 12, padding: 10, display: 'flex', justifyContent: 'space-between', alignItems: 'center', backdropFilter: 'blur(8px)' }}>
-              <Space size={8}>
-                <span style={{ width: 32, height: 32, borderRadius: 8, background: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#0e0e0e', border: '1px solid #fff' }}><GlobalOutlined /></span>
-                <div><div style={{ fontWeight: 850, color: '#fff', fontSize: 12 }}>5 Districts • Live ledger</div><div style={{ fontSize: 11, color: 'rgba(255,255,255,0.65)' }}>Agra leads • Prayagraj fastest growth</div></div>
-              </Space>
-              <Tag style={{ margin: 0, background: '#fff', color: '#0e0e0e', borderColor: '#fff', fontWeight: 800, borderRadius: 999, fontSize: 10 }}>F1 94.8%</Tag>
+            <div style={{ background: 'rgba(255,255,255,0.04)', borderRadius: 12, padding: 12, border: '1px solid rgba(255,255,255,0.10)', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div>
+                <div style={{ fontSize: 12, fontWeight: 750, color: '#fff' }}>5 Districts • Live ledger</div>
+                <div style={{ fontSize: 11, color: 'rgba(255,255,255,0.6)', marginTop: 2 }}>Agra leads • Prayagraj fastest growth</div>
+              </div>
+              <Tag style={{ margin: 0, background: '#fff', color: '#0e0e0e', borderColor: '#fff', fontWeight: 800, borderRadius: 999, fontSize: 11 }}>F1 94.8%</Tag>
             </div>
           </div>
         </div>
-        <div style={{ borderTop: '1px solid rgba(255,255,255,0.12)', background: '#fff', color: '#0e0e0e', overflow: 'hidden', padding: '7px 0', borderRadius: '0 0 15px 15px' }}>
-          <div className="marquee" style={{ fontFamily: 'JetBrains Mono, monospace', fontSize: 11, fontWeight: 750, letterSpacing: '0.08em' }}>
-            <span>◆ VELOCITY STRIP — MON 45 ◆ TUE 52 ◆ WED 38 ◆ THU 65 ◆ FRI 88 ◆ SAT 110 PEAK ◆ SUN 85</span>
-            <span>◆ TRUST TIERS — 65% HIGH AUTO ◆ 25% MEDIUM VERIFY ◆ 10% LOW FLAG</span>
-            <span>◆ TERRITORY — AGRA 120 ◆ LUCKNOW 98 ◆ VARANASI 76 ◆ KANPUR 65 ◆ PRAYAGRAJ 54</span>
-            <span>◆ VELOCITY STRIP — MON 45 ◆ TUE 52 ◆ WED 38 ◆ THU 65 ◆ FRI 88 ◆ SAT 110 PEAK ◆ SUN 85</span>
-            <span>◆ TRUST TIERS — 65% HIGH AUTO ◆ 25% MEDIUM VERIFY ◆ 10% LOW FLAG</span>
-            <span>◆ TERRITORY — AGRA 120 ◆ LUCKNOW 98 ◆ VARANASI 76 ◆ KANPUR 65 ◆ PRAYAGRAJ 54</span>
-          </div>
-        </div>
-        <style>{`@media(max-width: 880px){ .hero-bw > div:nth-child(2){ grid-template-columns: 1fr !important; } }`}</style>
       </div>
 
-      {/* KPIs */}
-      <Row gutter={[12, 12]} className="stagger-container">
-        {kpis.map((k) => (
-          <Col xs={24} sm={12} lg={6} key={k.title}>
-            <Card bordered={false} className="saffron-card kpi-card animate-scale-in" bodyStyle={{ padding: 16 }}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
-                <div><div style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.06em', color: '#737373' }}>{k.title.toUpperCase()}</div><div style={{ fontSize: 24, fontWeight: 900, color: '#242424', letterSpacing: '-0.03em', marginTop: 4 }}>{k.value}</div><div style={{ marginTop: 8, display: 'flex', gap: 6, alignItems: 'center' }}><Tag style={{ margin: 0, borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424', fontWeight: 750, fontSize: 11 }}>{k.delta}</Tag><span style={{ color: '#a3a3a3', fontSize: 11 }}>{k.sub}</span></div></div>
-                <div style={{ width: 40, height: 40, borderRadius: 10, background: '#242424', color: '#fff', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 18, border: '1px solid #242424' }}>{k.icon}</div>
-              </div>
-            </Card>
-          </Col>
-        ))}
-      </Row>
-
-      {/* VELOCITY + ACCURACY - B/W editorial substitutes */}
-      <Row gutter={[12, 12]}>
+      <Row gutter={[16, 16]}>
         <Col xs={24} lg={15}>
-          <Card
-            title={
-              <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                <span style={{ fontWeight: 850, letterSpacing: '-0.02em', color: '#242424', fontSize: 14 }}>7-Day Velocity Strip</span>
-                <Tag style={{ borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424', fontWeight: 800, fontSize: 10, margin: 0 }}>PEAK • SAT 110</Tag>
+          <Card className="saffron-card animate-fade-in-up" bordered={false} bodyStyle={{ padding: 16 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 10 }}>
+              <div>
+                <div style={{ fontWeight: 850, letterSpacing: '-0.02em', color: '#242424', fontSize: 15 }}>7-Day Intake Velocity</div>
+                <div style={{ fontSize: 11, color: '#737373', marginTop: 2 }}>Daily ingestion volume & peak saturation points</div>
               </div>
-            }
-            extra={<Space size={6}><RangePicker size="small" style={{ borderRadius: 8 }} /><Tag style={{ borderRadius: 999, background: '#fafafa', border: '1px solid #e5e5e5', color: '#737373', fontWeight: 700, fontSize: 11 }}>Avg 73/day</Tag></Space>}
-            bordered={false}
-            className="saffron-card animate-fade-in-up"
-            bodyStyle={{ padding: 16 }}
-          >
-            {/* Tape */}
-            <div className="velocity-strip" style={{ display: 'flex', alignItems: 'flex-end', gap: 8, height: 200, padding: '8px 4px 0' }}>
+              <Tag style={{ margin: 0, borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424', fontWeight: 800, fontSize: 11 }}><RiseOutlined /> Peak SAT 110</Tag>
+            </div>
+
+            {/* Velocity Strip BarChart substitute */}
+            <div className="velocity-strip" style={{ display: 'flex', gap: 10, marginTop: 18, overflowX: 'auto', paddingBottom: 6 }}>
               {trendData.map((d) => {
-                const h = Math.round((d.volume / maxVol) * 148) + 18;
                 const isPeak = d.volume === maxVol;
-                const isLow = d.volume < 50;
+                const isLow = d.volume === 38;
+                const heightPct = Math.round((d.volume / maxVol) * 100);
                 return (
-                  <div key={d.date} style={{ flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 8, minWidth: 0 }}>
+                  <div
+                    key={d.date}
+                    style={{
+                      flex: 1,
+                      minWidth: 50,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      gap: 6,
+                    }}
+                  >
+                    <div style={{ fontSize: 10, fontWeight: 800, color: isPeak ? '#242424' : '#737373' }}>{d.volume}</div>
                     <div
                       style={{
                         width: '100%',
-                        maxWidth: 72,
-                        height: h,
-                        background: isPeak ? '#0e0e0e' : isLow ? '#fff' : '#fafafa',
-                        border: `1px solid ${isPeak ? '#0e0e0e' : isLow ? '#d4d4d4' : '#242424'}`,
-                        borderStyle: isLow ? 'dashed' : 'solid',
-                        borderRadius: 10,
+                        height: 100,
+                        background: '#fafafa',
+                        borderRadius: 8,
                         display: 'flex',
-                        flexDirection: 'column',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                        padding: '8px 4px 6px',
+                        alignItems: 'flex-end',
+                        padding: 3,
+                        border: '1px solid #e5e5e5',
                         position: 'relative',
-                        overflow: 'hidden',
-                        boxShadow: isPeak ? '0 8px 20px rgba(0,0,0,0.18)' : 'none',
                       }}
                     >
-                      {isPeak && <div style={{ position: 'absolute', inset: 0, background: 'radial-gradient(300px 80px at 50% 0%, rgba(255,255,255,0.12), transparent 60%)', pointerEvents: 'none' }} />}
-                      <span style={{ fontSize: 10, fontWeight: 850, letterSpacing: '0.06em', color: isPeak ? 'rgba(255,255,255,0.7)' : '#a3a3a3' }}>{d.note}</span>
-                      <span style={{ fontSize: isPeak ? 22 : 18, fontWeight: 950, letterSpacing: '-0.04em', color: isPeak ? '#fff' : '#242424', lineHeight: 1 }}>{d.volume}</span>
-                      <span style={{ width: '70%', height: 3, borderRadius: 999, background: isPeak ? '#fff' : '#242424', opacity: isPeak ? 1 : 0.18 }} />
+                      <div
+                        style={{
+                          width: '100%',
+                          height: `${heightPct}%`,
+                          background: isPeak ? '#242424' : isLow ? '#d4d4d4' : '#737373',
+                          borderRadius: 6,
+                          transition: 'height 0.3s cubic-bezier(0.16,1,0.3,1)',
+                        }}
+                      />
                     </div>
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
-                      <span style={{ fontSize: 12, fontWeight: 850, color: '#242424', letterSpacing: '-0.02em' }}>{d.date}</span>
+                    <div style={{ fontSize: 11, fontWeight: 800, color: '#242424', display: 'flex', alignItems: 'center', gap: 4 }}>
+                      {d.date}
                       <span style={{ width: 6, height: 6, borderRadius: 999, background: isPeak ? '#242424' : isLow ? '#a3a3a3' : '#525252', display: 'inline-block' }} />
                     </div>
                   </div>
                 );
               })}
-            </div>
-            <Divider style={{ margin: '14px 0 12px' }} />
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr auto', gap: 12, alignItems: 'center' }}>
-              <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap', alignItems: 'center' }}>
-                <Tag style={{ margin: 0, borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424', fontWeight: 800, fontSize: 11 }}><FireOutlined /> Momentum +18%</Tag>
-                <span style={{ fontSize: 12, color: '#737373' }}>7-day total: <strong style={{ color: '#242424' }}>{trendData.reduce((a, c) => a + c.volume, 0)}</strong> • Throughput builds Thu→Sat</span>
-              </div>
-              <Space size={6}>
-                <span style={{ fontSize: 11, color: '#737373', fontWeight: 700 }}>Scale: max 110</span>
-                <Progress percent={85} showInfo={false} strokeColor="#242424" trailColor="#f0f0f0" size="small" style={{ width: 80 }} />
-              </Space>
             </div>
           </Card>
         </Col>
@@ -269,15 +239,20 @@ function Analytics() {
 
       {/* District Ledger - editorial substitute for BarChart */}
       <Card
+        className="saffron-card animate-fade-in-up territory-card"
         title={
-          <div style={{ display: 'flex', alignItems: 'center', gap: 10, flexWrap: 'wrap' }}>
-            <span style={{ fontWeight: 850, letterSpacing: '-0.02em', color: '#242424', fontSize: 14 }}>Territory Ledger — District Performance</span>
-            <Tag style={{ margin: 0, borderRadius: 999, background: '#fff', border: '1px solid #242424', color: '#242424', fontWeight: 800, fontSize: 10 }}>RANKED • VERIFIED vs QUEUED</Tag>
+          <div className="territory-card-header" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 10, flexWrap: 'wrap', width: '100%' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <span style={{ fontWeight: 850, letterSpacing: '-0.02em', color: '#242424', fontSize: 14 }}>Territory Ledger</span>
+              <Tag className="territory-badge" style={{ margin: 0, borderRadius: 999, background: '#fff', border: '1px solid #242424', color: '#242424', fontWeight: 800, fontSize: 10 }}>RANKED • VERIFIED</Tag>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, flexWrap: 'wrap' }}>
+              <Tag style={{ margin: 0, borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424', fontWeight: 800, fontSize: 10 }}><TrophyOutlined /> Agra #1</Tag>
+              <span style={{ color: '#737373', fontSize: 11, fontWeight: 700 }}>5 districts • {totalProcessed + totalPending} total</span>
+            </div>
           </div>
         }
-        extra={<Space size={8}><Tag style={{ margin: 0, borderRadius: 999, background: '#242424', color: '#fff', borderColor: '#242424', fontWeight: 800, fontSize: 11 }}><TrophyOutlined /> Agra #1</Tag><Text style={{ color: '#737373', fontSize: 12, display: 'inline-flex', gap: 6, alignItems: 'center' }}><GlobalOutlined /> 5 districts • {totalProcessed + totalPending} total</Text></Space>}
         bordered={false}
-        className="saffron-card animate-fade-in-up"
         bodyStyle={{ padding: 16 }}
       >
         <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>

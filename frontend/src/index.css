@@ -609,10 +609,18 @@ h1,h2,h3,h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
   .district-ledger-row::before{ content:''; position: absolute; left:0; top:0; bottom:0; width:3px; background:#242424; opacity:0.9; }
   .district-ledger-row > div:last-child{ justify-content: flex-start !important; }
 
-  /* Stats strips & Analytics Hero */
+  /* Stats strips & Analytics Hero Mobile */
   .analytics-stats-strip{ grid-template-columns: repeat(2, 1fr) !important; gap: 8px !important; padding: 10px !important; }
-  .analytics-hero-header{ padding: 8px 10px !important; gap: 6px !important; }
+  .analytics-hero-header{ padding: 8px 10px !important; gap: 6px !important; flex-wrap: wrap !important; }
   .analytics-hero-subtitle{ display: none !important; }
+  .analytics-hero-tag{ font-size: 10px !important; padding: 3px 7px !important; }
+  .analytics-live-tag{ font-size: 9.5px !important; padding: 1px 6px !important; }
+
+  /* Territory Card Mobile Header Alignment */
+  .territory-card .ant-card-head{ padding: 10px 12px !important; height: auto !important; min-height: unset !important; }
+  .territory-card .ant-card-head-title{ padding: 0 !important; white-space: normal !important; width: 100% !important; }
+  .territory-card-header{ flex-direction: column !important; align-items: flex-start !important; gap: 6px !important; }
+  .territory-badge{ font-size: 9px !important; padding: 1px 6px !important; }
 
   /* Profile hero */
   .profile-hero-grid{ grid-template-columns: 1fr !important; gap: 12px !important; text-align: left !important; }
