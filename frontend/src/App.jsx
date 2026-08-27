@@ -130,7 +130,9 @@ function App() {
             </div>
             <div className="header-actions" style={{display:'flex', alignItems:'center', gap:8, flexShrink:0}}>
               <Input className="header-search" prefix={<SearchOutlined style={{color:'#a3a3a3'}} />} placeholder="Search records, khasra, owner…" style={{width:260, background:'#fff', borderRadius:10, border:'1px solid #e5e5e5', height:36}} allowClear />
-              <Tooltip title="Help & Docs"><Button className="header-help-btn" type="text" icon={<QuestionCircleOutlined style={{fontSize:16, color:'#525252'}} />} style={{width:34, height:34, border:'1px solid #e5e5e5', background:'#fff', borderRadius:8}} /></Tooltip>
+              <div className="header-help-btn">
+                <Tooltip title="Help & Docs"><Button type="text" icon={<QuestionCircleOutlined style={{fontSize:16, color:'#525252'}} />} style={{width:34, height:34, border:'1px solid #e5e5e5', background:'#fff', borderRadius:8}} /></Tooltip>
+              </div>
               <Badge count={3} size="small" offset={[-2,2]}><Button type="text" icon={<BellOutlined style={{fontSize:16, color:'#525252'}} />} style={{width:34, height:34, background:'#fff', border:'1px solid #e5e5e5', borderRadius:8}} /></Badge>
               <div className="header-divider" style={{width:1, height:20, background:'#e5e5e5', margin:'0 2px'}} />
               <Dropdown menu={userMenu} placement="bottomRight" arrow>
